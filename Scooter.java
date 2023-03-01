@@ -15,7 +15,6 @@ public class Scooter{
       this.serial = Scooter.nextSerial;
       this.isBroken = false;
       Scooter.nextSerial++;
-      
    }
    //methods below
    
