@@ -16,5 +16,35 @@ public class User{
    
  
    //methods
+   //login in method-----------------------------------------------------------------------------------------------------------------------------
+   
+   public void login(String password){
+      if(this.password == password){
+         this.loggedIn = true;
+      }else{
+         System.out.println("Dang Incorrect Password");
+      }
+   }
+   //logout method------------------------------------------------------------------------------------------------------------------------------
+   
+   public void logout(){
+      this.loggedIn = false;
+   }
+   
+   //getter methods --------------------------------------------------------------------------------------------------------------------------
+   public String getUsername(){
+      return this.username;
+   }
+   
+    public String getPassword(){
+      return this.password;
+   }
+   
+    public int getAge(){
+      return this.age;
+   }
+    public boolean getLoginStatus(){
+      return this.loggedIn;
+   }
 
 }
