@@ -47,6 +47,10 @@ public class Scooter{
       System.out.println("Yippee Scooter is repaired!");
    
    }
+   //getter method---------------------------------------------------------------------------------------------------------------------------
+   public String getStation(){
+      return this.station;
+   }
    
    public static void main(String[] args){
       Scooter scooter1 = new Scooter("West 3rd ");

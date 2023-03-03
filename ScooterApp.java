@@ -25,29 +25,63 @@ public class ScooterApp{
    }
 
 
-   //methods
-   //public User registerUser(User user){
-   //     if(user.age)
-   //
-   //}
+   //registerUser method---------------------------------------------------------------------------------------------
+   public User registerUser(User user){
+        if(user.getAge() > 18){
+            //check if user object in userRegistered array. If not add them. If so dont
+            if(this.registeredUsers.containsKey(user.getUsername())){
+               System.out.println("Cannot register because user is already registered");
+            }else{
+               this.registeredUsers.put(user.getUsername(), user);
+               System.out.println("User registered successfully");
+            }
+        }else{
+         System.out.println("Cannot register User younger than 18");
+        
+        }   
+        return user;
+   }
+   //login method---------------------------------------------------------------------------------------------------------------
+   public void loginUser(User user, String password){
+      user.login(password);
+   }
+   //logout method---------------------------------------------------------------------------------------------------------------
+   public void logoutUser(User user){
+      user.logout();
+   }
+   //create scooter method--------------------------------------------------------------------------------------------------------
+   public Scooter createScooter(String station){
+      if(!this.stations.containsKey(station)){
+         System.out.println("station does not exsits");
+         System.exit(0);
+      }
+      //creater new scooter
+      Scooter newScooter = new Scooter(station);
+      ArrayList<Scooter> list = this.stations.get(newScooter.getStation());
+      list.add(newScooter);
+      System.out.println("Scooter succefully added to station");
+      return newScooter; 
+   }
    
-   
-   
-   
-   
-   
+  
    
    public static void main(String[] args){
       ScooterApp app = new ScooterApp();
-      
-      
-      
-      System.out.println(app.stations);
-      System.out.println(app.registeredUsers);
+
+      //System.out.println(app.stations);
+      //System.out.println(app.registeredUsers);
       
       //create user
       User user1 = new User("anderson", "tiban", 19);
-      System.out.println(user1.getUsername());
+      
+      app.createScooter("loc1");
+      app.createScooter("loc2");
+      app.createScooter("loc2");
+      app.createScooter("loc6");
+      //left off at dock Scooter 
+     
+      
+     
       
    }
    

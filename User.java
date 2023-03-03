@@ -21,6 +21,7 @@ public class User{
    public void login(String password){
       if(this.password == password){
          this.loggedIn = true;
+         System.out.println("Hooray successfully logged in");
       }else{
          System.out.println("Dang Incorrect Password");
       }
