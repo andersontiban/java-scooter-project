@@ -71,8 +71,7 @@ public class ScooterApp{
             System.out.print("Scooter already in list");
          }else{
             list.add(scooter);
-
-            //still need to dock scooter 
+            scooter.dock(station);    
          }
       }
       else{
@@ -94,20 +93,19 @@ public class ScooterApp{
    public static void main(String[] args){
       ScooterApp app = new ScooterApp();
 
-      //System.out.println(app.stations);
-      //System.out.println(app.registeredUsers);
       
       //create user
       User user1 = new User("anderson", "tiban", 19);
       
-      //Scooter scoot1 = app.createScooter("loc1");
+      Scooter scoot1 = app.createScooter("loc1");
       Scooter scoot2 = app.createScooter("loc2");
       Scooter scoot3 = app.createScooter("loc2");
       
-      //left off at dock Scooter
-      //app.dockScooter(scoot1, "loc2");
-      
       app.rentScooter(scoot2, user1);
+      
+      
+      app.dockScooter(scoot2, "loc2");
+      
 
   
    }

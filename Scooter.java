@@ -35,10 +35,11 @@ public class Scooter{
    
    }
    //dock scooter at a station--------------------------------------------------------------------------------------------------------------------
-  // public void dock(String station){
-  //    //set scooter station to new station
-        //remove user
-  // }
+   public void dock(String station){
+     //set scooter station to new station
+     this.station = station;
+     this.user = null;
+   }
    //recharge scooter ------------------------------------------------------------------------------------------------------------------------
    public void recharge(){
       this.charge = 100;
