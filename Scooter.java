@@ -25,6 +25,7 @@ public class Scooter{
          if(!this.isBroken){
             this.station = null;
             this.user = user;
+            System.out.println("Scooter has been rented to the user :)");
          }else{
             System.out.println("Scooter needs repair big bruh");
          }
@@ -34,8 +35,9 @@ public class Scooter{
    
    }
    //dock scooter at a station--------------------------------------------------------------------------------------------------------------------
-  // public void dock(station){
-  //    
+  // public void dock(String station){
+  //    //set scooter station to new station
+        //remove user
   // }
    //recharge scooter ------------------------------------------------------------------------------------------------------------------------
    public void recharge(){
@@ -50,6 +52,9 @@ public class Scooter{
    //getter method---------------------------------------------------------------------------------------------------------------------------
    public String getStation(){
       return this.station;
+   }
+   public User getUser(){
+      return this.user;
    }
    
    public static void main(String[] args){

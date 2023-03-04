@@ -52,7 +52,7 @@ public class ScooterApp{
    //create scooter method--------------------------------------------------------------------------------------------------------
    public Scooter createScooter(String station){
       if(!this.stations.containsKey(station)){
-         System.out.println("station does not exsits");
+         System.out.println("station does not exsits. Closing App");
          System.exit(0);
       }
       //creater new scooter
@@ -61,10 +61,36 @@ public class ScooterApp{
       list.add(newScooter);
       System.out.println("Scooter succefully added to station");
       return newScooter; 
+      
    }
-   
+   //dockScooter method------------------------------------------------------------------------------------------------------------
+   public void dockScooter(Scooter scooter, String station){
+      if(this.stations.containsKey(station)){
+         ArrayList<Scooter> list = this.stations.get(station);
+         if(list.contains(scooter)){
+            System.out.print("Scooter already in list");
+         }else{
+            list.add(scooter);
+
+            //still need to dock scooter 
+         }
+      }
+      else{
+         System.out.println("No such station");
+      }
+   }
+   //rent Scooter method--------------------------------------------------------------------------------------------------------
+   public void rentScooter(Scooter scooter, User user){
+      if(scooter.getUser() != null){
+         System.out.println("Scooter already rented");
+      }else{
+         ArrayList<Scooter> list = this.stations.get(scooter.getStation());
+         list.remove(scooter);
+         scooter.rent(user);
+         
+      }
+   }
   
-   
    public static void main(String[] args){
       ScooterApp app = new ScooterApp();
 
@@ -74,15 +100,16 @@ public class ScooterApp{
       //create user
       User user1 = new User("anderson", "tiban", 19);
       
-      app.createScooter("loc1");
-      app.createScooter("loc2");
-      app.createScooter("loc2");
-      app.createScooter("loc6");
-      //left off at dock Scooter 
-     
+      //Scooter scoot1 = app.createScooter("loc1");
+      Scooter scoot2 = app.createScooter("loc2");
+      Scooter scoot3 = app.createScooter("loc2");
       
-     
+      //left off at dock Scooter
+      //app.dockScooter(scoot1, "loc2");
       
+      app.rentScooter(scoot2, user1);
+
+  
    }
    
 }
